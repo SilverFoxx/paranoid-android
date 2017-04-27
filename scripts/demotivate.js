@@ -1,6 +1,8 @@
 /*
  Description:
    This bot is guaranteed to demotivate even the most upbeat team.
+   
+   “I won’t enjoy it.” – Marvin
 
  Dependencies:
    Nil
@@ -22,7 +24,7 @@
 
 module.exports = (marv) => {
 
-  //randomise function
+  //randomise function (for the practice)
   const randomise = array => {
     const randomIndex = Math.floor(Math.random() * array.length)
     return array[randomIndex]
@@ -53,14 +55,17 @@ module.exports = (marv) => {
     "http://cewl.io/img/fc/hard10.jpg"
   ]
 
-  marv.hear(/@markysbot$|^marv$|^marvin$/i, res => {
+  marv.hear(/@markysbot$|^(@)?marv(in)?$/i, res => {
     return res.reply('Feeling good? I can help with that.')
   })
   marv.respond(/hello|\bhi\b|\bhey\b/i, res => {
-    return res.reply("Hi - I'm Marvin. I hope your day is going better than mine.");
+    return res.reply("Hi - I'm Marvin, the paranoid android. I hope your day is going better than mine.");
   })
   marv.hear(/well done|great|awesome|good/i, res => {
     return res.send("Fluke! The good times won't last.")
+  })
+  marv.hear(/life/i, res => {
+    return res.send("Life! Don't talk to me about life.")
   })
 
 //send random demotivational image to me, or to other user through private message
@@ -80,17 +85,17 @@ module.exports = (marv) => {
     }
   })
 
-// TODO: DRY the above 2 into one. How to make capturing group optional? Too many hours of my life wasted on this one!
-// marv.respond(/Hit (\bme\b|\b@.*\b) (hard)?/i, res => {
-//   console.log(`0: ${res.match[0]}, 1: ${res.match[1]}, 2: ${res.match[2]}`)
-//   let image = posters
-//   if (res.match[2]) {
-//     image = fourchan
-//   }
-//     if(res.match[1] === 'me') {
-//       return res.reply(randomise(image))
-//     } else  {
-//       marv.messageRoom(res.match[1], (randomise(image)))
-//     }
-//   })
+/* TODO: DRY the above 2 into one. How to make capturing group optional? Too many hours of my life wasted on this one!
+marv.respond(/Hit (\bme\b|\b@.*\b) (hard)?/i, res => {
+  console.log(`0: ${res.match[0]}, 1: ${res.match[1]}, 2: ${res.match[2]}`)
+  let image = posters
+  if (res.match[2]) {
+    image = fourchan
+  }
+    if(res.match[1] === 'me') {
+      return res.reply(randomise(image))
+    } else  {
+      marv.messageRoom(res.match[1], (randomise(image)))
+    }
+  }) */
 }
