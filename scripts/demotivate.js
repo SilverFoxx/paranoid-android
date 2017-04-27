@@ -59,7 +59,7 @@ module.exports = (marv) => {
     return res.reply('Feeling good? I can help with that.')
   })
   marv.respond(/hello|\bhi\b|\bhey\b/i, res => {
-    return res.reply("Hi - I'm Marvin, the paranoid android. Brain the size of a planet and I end up on this course.");
+    return res.reply("Hi - I'm Marvin, the paranoid android. Brain the size of a planet and I end up on this JS course.");
   })
   marv.hear(/well done|great|awesome|good/i, res => {
     return res.send("Fluke! The good times won't last.")
