@@ -1,7 +1,7 @@
 /*
  Description:
    This bot is guaranteed to demotivate even the most upbeat team.
-   
+
    “I won’t enjoy it.” – Marvin
 
  Dependencies:
@@ -59,7 +59,7 @@ module.exports = (marv) => {
     return res.reply('Feeling good? I can help with that.')
   })
   marv.respond(/hello|\bhi\b|\bhey\b/i, res => {
-    return res.reply("Hi - I'm Marvin, the paranoid android. I hope your day is going better than mine.");
+    return res.reply("Hi - I'm Marvin, the paranoid android. Brain the size of a planet and I end up on this course.");
   })
   marv.hear(/well done|great|awesome|good/i, res => {
     return res.send("Fluke! The good times won't last.")
